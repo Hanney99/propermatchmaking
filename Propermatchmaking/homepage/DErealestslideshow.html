@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="slideshowfinal.css"/>
+<style>
+.mySlides {display:none;}
+</style>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+<body>
+  
+ if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+  }
+
+<h2 class="w3-center">Proper Matchmaking</h2>
+
+<div class="w3-content w3-section" style="max-width:700px;border-radius: 25px">
+  <img class="mySlides" src="csgo.jpg" style="width:100%;border-radius: 25px">
+  <img class="mySlides" src="overwatch4.jpg" style="width:100%;border-radius: 25px">
+  <img class="mySlides" src="leagueoflegends.jpg" style="width:100%;border-radius: 25px">
+  <img class="mySlides" src="dota2.jpeg" style="width:100%;border-radius: 25px">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+<hr size="10" noshade>
+</body>
+</html>
